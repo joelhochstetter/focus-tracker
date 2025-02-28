@@ -1,0 +1,17 @@
+#!/bin/bash
+# Script to run focus.py with Python
+
+# Determine the directory where the script is located
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+
+# Full path to focus.py
+FOCUS_SCRIPT="$SCRIPT_DIR/focus.py"
+
+# Check if the script exists
+if [ ! -f "$FOCUS_SCRIPT" ]; then
+    echo "Error: focus.py not found at $FOCUS_SCRIPT"
+    exit 1
+fi
+
+# Run the Python script with any arguments passed to this bash script
+python3 "$FOCUS_SCRIPT" "$@"
